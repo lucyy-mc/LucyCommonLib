@@ -24,6 +24,8 @@
 package net.lucypoulton.squirtgun.bukkit;
 
 import net.lucypoulton.squirtgun.bukkit.task.BukkitTaskScheduler;
+import net.lucypoulton.squirtgun.command.node.CommandNode;
+import net.lucypoulton.squirtgun.format.FormatProvider;
 import net.lucypoulton.squirtgun.platform.AuthMode;
 import net.lucypoulton.squirtgun.platform.EventListener;
 import net.lucypoulton.squirtgun.platform.Platform;
@@ -37,6 +39,8 @@ import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.PluginCommand;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -44,6 +48,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -162,5 +167,14 @@ public class BukkitPlatform implements Platform {
     @Override
     public Path getConfigPath(SquirtgunPlugin<?> plugin) {
         return Paths.get(this.plugin.getDataFolder().toURI());
+    }
+
+    @Override
+    public void registerCommand(CommandNode<?> node, FormatProvider provider) {
+        PluginCommand command = plugin.getCommand(node.getName());
+        Objects.requireNonNull(command);
+        TabExecutor executor = new BukkitNodeExecutor(node, provider, this);
+        command.setExecutor(executor);
+        command.setTabCompleter(executor);
     }
 }

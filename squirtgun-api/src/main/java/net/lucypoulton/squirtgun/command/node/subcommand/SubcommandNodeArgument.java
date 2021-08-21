@@ -23,9 +23,9 @@
 
 package net.lucypoulton.squirtgun.command.node.subcommand;
 
-import net.lucypoulton.squirtgun.command.argument.AbstractArgument;
 import net.lucypoulton.squirtgun.command.context.CommandContext;
 import net.lucypoulton.squirtgun.command.node.CommandNode;
+import net.lucypoulton.squirtgun.command.argument.AbstractArgument;
 import net.lucypoulton.squirtgun.platform.audience.PermissionHolder;
 import org.jetbrains.annotations.Nullable;
 

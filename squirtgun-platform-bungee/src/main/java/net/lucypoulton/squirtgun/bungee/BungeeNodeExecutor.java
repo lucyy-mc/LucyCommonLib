@@ -42,7 +42,7 @@ import java.util.List;
  */
 public class BungeeNodeExecutor extends Command implements TabExecutor {
 
-    private final CommandNode<PermissionHolder> node;
+    private final CommandNode<?> node;
     private final FormatProvider formatter;
     private final BungeePlatform platform;
 
@@ -51,7 +51,7 @@ public class BungeeNodeExecutor extends Command implements TabExecutor {
      * @param formatter the command sender to pass to the context
      * @param platform  the platform that this node belongs to
      */
-    public BungeeNodeExecutor(CommandNode<PermissionHolder> node, FormatProvider formatter, BungeePlatform platform) {
+    public BungeeNodeExecutor(CommandNode<?> node, FormatProvider formatter, BungeePlatform platform) {
         super(node.getName());
         this.node = node;
         this.formatter = formatter;

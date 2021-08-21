@@ -23,7 +23,9 @@
 
 package net.lucypoulton.squirtgun.fabric;
 
+import net.lucypoulton.squirtgun.command.node.CommandNode;
 import net.lucypoulton.squirtgun.fabric.task.FabricTaskScheduler;
+import net.lucypoulton.squirtgun.format.FormatProvider;
 import net.lucypoulton.squirtgun.platform.AuthMode;
 import net.lucypoulton.squirtgun.platform.EventListener;
 import net.lucypoulton.squirtgun.platform.Platform;
@@ -39,6 +41,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import org.apache.commons.lang3.NotImplementedException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -206,6 +209,12 @@ public final class FabricPlatform implements Platform {
     @Override
     public Path getConfigPath(final SquirtgunPlugin<?> plugin) {
         return FabricLoader.getInstance().getConfigDir().resolve(plugin.getPluginName());
+    }
+
+    @Override
+    public void registerCommand(CommandNode<?> node, FormatProvider provider) {
+        // TODO
+        throw new NotImplementedException("TODO");
     }
 
     private FabricPlayer asFabricPlayerOrDummy(final ServerPlayerEntity player) {

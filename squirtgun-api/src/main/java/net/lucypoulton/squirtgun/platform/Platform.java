@@ -23,11 +23,13 @@
 
 package net.lucypoulton.squirtgun.platform;
 
+import net.kyori.adventure.text.Component;
+import net.lucypoulton.squirtgun.command.node.CommandNode;
+import net.lucypoulton.squirtgun.format.FormatProvider;
 import net.lucypoulton.squirtgun.platform.audience.SquirtgunPlayer;
 import net.lucypoulton.squirtgun.platform.audience.SquirtgunUser;
 import net.lucypoulton.squirtgun.platform.scheduler.TaskScheduler;
 import net.lucypoulton.squirtgun.plugin.SquirtgunPlugin;
-import net.kyori.adventure.text.Component;
 import org.jetbrains.annotations.Nullable;
 
 import java.nio.file.Path;
@@ -113,4 +115,11 @@ public interface Platform {
      * Gets a path to a directory where config files specific to a plugin can be stored.
      */
     Path getConfigPath(SquirtgunPlugin<?> plugin);
+
+    /**
+     * Registers a command node with the server.
+     *
+     * @param node the mpde to execute
+     */
+    void registerCommand(CommandNode<?> node, FormatProvider provider);
 }

@@ -24,12 +24,12 @@
 package net.lucypoulton.squirtgun.command.node.subcommand;
 
 import com.google.common.collect.ImmutableList;
-import net.lucypoulton.squirtgun.command.argument.CommandArgument;
-import net.lucypoulton.squirtgun.command.argument.ListArgument;
-import net.lucypoulton.squirtgun.command.condition.Condition;
 import net.lucypoulton.squirtgun.command.context.CommandContext;
 import net.lucypoulton.squirtgun.command.node.CommandNode;
 import net.lucypoulton.squirtgun.command.node.HelpNode;
+import net.lucypoulton.squirtgun.command.argument.CommandArgument;
+import net.lucypoulton.squirtgun.command.argument.ListArgument;
+import net.lucypoulton.squirtgun.command.condition.Condition;
 import net.lucypoulton.squirtgun.format.FormatProvider;
 import net.lucypoulton.squirtgun.format.TextFormatter;
 import net.lucypoulton.squirtgun.platform.audience.PermissionHolder;

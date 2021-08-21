@@ -24,6 +24,8 @@
 package net.lucypoulton.squirtgun.bungee;
 
 import net.lucypoulton.squirtgun.bungee.task.BungeeTaskScheduler;
+import net.lucypoulton.squirtgun.command.node.CommandNode;
+import net.lucypoulton.squirtgun.format.FormatProvider;
 import net.lucypoulton.squirtgun.platform.AuthMode;
 import net.lucypoulton.squirtgun.platform.EventListener;
 import net.lucypoulton.squirtgun.platform.Platform;
@@ -146,5 +148,11 @@ public class BungeePlatform implements Platform {
     @Override
     public Path getConfigPath(SquirtgunPlugin<?> plugin) {
         return Paths.get(this.plugin.getDataFolder().toURI());
+    }
+
+    @Override
+    public void registerCommand(CommandNode<?> node, FormatProvider provider) {
+        plugin.getProxy().getPluginManager().registerCommand(plugin,
+                new BungeeNodeExecutor(node, provider, this));
     }
 }

@@ -32,5 +32,4 @@ dependencies {
 
     api("net.kyori:adventure-platform-bukkit:4.0.0-SNAPSHOT")
     api(project(":squirtgun-api"))
-    api(project(":squirtgun-commands"))
 }

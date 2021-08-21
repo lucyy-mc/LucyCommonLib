@@ -23,9 +23,9 @@
 
 package net.lucypoulton.squirtgun.command.context;
 
+import net.lucypoulton.squirtgun.command.node.CommandNode;
 import net.lucypoulton.squirtgun.command.argument.CommandArgument;
 import net.lucypoulton.squirtgun.command.condition.Condition;
-import net.lucypoulton.squirtgun.command.node.CommandNode;
 import net.lucypoulton.squirtgun.format.FormatProvider;
 import net.lucypoulton.squirtgun.platform.audience.PermissionHolder;
 import net.kyori.adventure.text.Component;

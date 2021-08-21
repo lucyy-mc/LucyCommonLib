@@ -25,11 +25,11 @@ package net.lucypoulton.squirtgun.command.node.subcommand;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import net.lucypoulton.squirtgun.command.argument.CommandArgument;
-import net.lucypoulton.squirtgun.command.condition.Condition;
 import net.lucypoulton.squirtgun.command.context.CommandContext;
 import net.lucypoulton.squirtgun.command.node.AbstractNode;
 import net.lucypoulton.squirtgun.command.node.CommandNode;
+import net.lucypoulton.squirtgun.command.argument.CommandArgument;
+import net.lucypoulton.squirtgun.command.condition.Condition;
 import net.lucypoulton.squirtgun.platform.audience.PermissionHolder;
 import net.kyori.adventure.text.Component;
 import org.jetbrains.annotations.NotNull;

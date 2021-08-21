@@ -48,9 +48,6 @@ dependencies {
     api(include(project(":squirtgun-api")) {
         exclude("net.kyori")
     })
-    api(include(project(":squirtgun-commands")) {
-        exclude("net.kyori")
-    })
 }
 
 publishing {
@@ -63,11 +60,11 @@ publishing {
             pom {
                 withXml {
                     val deps = asNode().appendNode("dependencies")
-                    listOf(project(":squirtgun-api"), project(":squirtgun-commands")).forEach {
+                    project(":squirtgun-api") {
                         val dep = deps.appendNode("dependency")
-                        dep.appendNode("groupId", it.group)
-                        dep.appendNode("artifactId", it.name)
-                        dep.appendNode("version", it.version)
+                        dep.appendNode("groupId", this.group)
+                        dep.appendNode("artifactId", this.name)
+                        dep.appendNode("version", this.version)
                         dep.appendNode("scope", "compile")
                     }
                 }
